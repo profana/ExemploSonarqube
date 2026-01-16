@@ -9,6 +9,7 @@ namespace SchoolApp
         static void Main(string[] args)
         {
             Console.WriteLine("Sistema de Gestão de Alunos");
+            int i;
 
             List<int> notas = new List<int>();
             notas.Add(10);
