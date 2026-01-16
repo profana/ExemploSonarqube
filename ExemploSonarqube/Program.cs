@@ -10,6 +10,7 @@ namespace SchoolApp
         {
             Console.WriteLine("Sistema de Gestão de Alunos");
             int i;
+            i = i;
 
             List<int> notas = new List<int>();
             notas.Add(10);
@@ -30,6 +31,8 @@ namespace SchoolApp
         static void CalcularMedia(List<int> notas)
         {
             int soma = 0;
+            int xyz = 5;
+            xyz = xyz;
 
             for (int i = 0; i < notas.Count; i++)
             {
