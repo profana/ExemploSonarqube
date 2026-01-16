@@ -13,9 +13,11 @@ namespace SchoolApp
             List<int> notas = new List<int>();
             notas.Add(10);
             notas.Add(15);
+            notas.Add(10);
             notas.Add(20);
             notas.Add(-5); // valor inválido
 
+            CalcularMedia(notas);
             CalcularMedia(notas);
 
             if (notas.Count > 0)
