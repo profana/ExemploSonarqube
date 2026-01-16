@@ -8,16 +8,15 @@ namespace SchoolApp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Sistema de Gestão de Alunos");
-            int i;
-            i = i;
+            string nome = null;
+            Console.WriteLine(nome.Length);
 
+            Console.WriteLine("Sistema de Gestão de Alunos");
             List<int> notas = new List<int>();
             notas.Add(10);
             notas.Add(15);
-            notas.Add(10);
             notas.Add(20);
-            notas.Add(-5); // valor inválido
+            notas.Add(-5); 
 
             CalcularMedia(notas);
             CalcularMedia(notas);
