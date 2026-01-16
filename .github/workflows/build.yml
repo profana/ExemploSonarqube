@@ -1,39 +1,19 @@
-name: SonarCloud
-
+name: Build
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
-
+    types: [opened, synchronize, reopened]
 jobs:
-  build:
+  sonarqube:
+    name: SonarQube
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-
-      - name: Install SonarScanner
-        run: dotnet tool install --global dotnet-sonarscanner
-
-      - name: SonarCloud Begin
-        run: |
-          dotnet sonarscanner begin \
-            /k:"SEU_ORG_SEU_PROJETO" \
-            /o:"SUA_ORGANIZACAO" \
-            /d:sonar.login="${{ secrets.SONAR_TOKEN }}" \
-            /d:sonar.host.url="https://sonarcloud.io"
-
-      - name: Build
-        run: dotnet build
-
-      - name: SonarCloud End
-        run: dotnet sonarscanner end \
-          /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
